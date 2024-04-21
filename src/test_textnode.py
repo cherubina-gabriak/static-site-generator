@@ -8,7 +8,7 @@ from textnode import (
     text_type_code,
 )
 
-class TestTexyNode(unittest.TestCase):
+class TestTextNode(unittest.TestCase):
     def test_eq(self):
         node = TextNode("This is a text node", text_type_bold)
         node2 = TextNode("This is a text node", text_type_bold)
@@ -26,8 +26,6 @@ class TestTexyNode(unittest.TestCase):
     def test_property(self):
         node = TextNode("This is a text node", text_type_code)
         self.assertIs(node.text_type, text_type_code)
-
-
 
 if __name__ == "__main__":
     unittest.main()
