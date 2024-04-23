@@ -89,7 +89,6 @@ class TestInlineMarkdwon(unittest.TestCase):
     def test_text_to_nodes(self):
         text = "This is **text** with an *italic* word and a `code block` and an ![image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/zjjcJKZ.png) and a [link](https://boot.dev)"
         nodes = text_to_textnodes(text)
-        print("nodes::::", nodes)
         expected = [
             TextNode("This is ", text_type_text),
             TextNode("text", text_type_bold),
