@@ -1,7 +1,14 @@
-from textnode import TextNode, split_nodes_delimiter, text_type_bold, text_type_text
+import shutil
+import os
+from copystatic import copy_file_tree
+
+dir_path_static = "./static"
+dir_path_public = "./public"
 
 def main():
-    nodes = split_nodes_delimiter([TextNode("*This* is bold *text", text_type_text)], "*", text_type_bold)
-    print("nodes::::", nodes)
+    if os.path.exists(dir_path_public):
+        shutil.rmtree(dir_path_public)
+
+    copy_file_tree(dir_path_static, dir_path_public)
 
 main()
