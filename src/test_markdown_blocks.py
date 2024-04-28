@@ -2,7 +2,8 @@ import unittest
 
 from markdown_blocks import (
     block_to_block_type, 
-    block_type_heading, 
+    block_type_heading,
+    block_to_html_node,
     markdown_to_blocks, 
     block_type_paragraph, 
     block_type_ordered_list,
@@ -29,3 +30,11 @@ class TestBlockMarkdown(unittest.TestCase):
         self.assertEqual(block_to_block_type(para), block_type_paragraph)
         quote = ">this is quote"
         self.assertEqual(block_to_block_type(quote), block_type_quote)
+
+    def test_convert_block_to_node(self):
+        heading = "## This is heading 2"
+        heading_node = block_to_html_node(heading)
+        self.assertEqual(heading_node.to_html(), "<h2>This is heading 2</h2>")
+
+        
+
